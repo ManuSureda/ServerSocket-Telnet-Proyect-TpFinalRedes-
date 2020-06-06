@@ -9,7 +9,21 @@ import java.net.Socket;
 
 public class Server {
 
+//    private int id;
+//
+//    public Server(int id) {
+//        this.id = id;
+//    }
+//
+//    public int getId() {
+//        return id;
+//    }
+
     public static void main(String[] args) {
+        new Server().run();
+    }
+
+    public void run() {
 
         ServerSocket server = null;
         Socket client = null;
@@ -32,7 +46,7 @@ public class Server {
 
                 //acepto al cliente
                 client = server.accept();
-                System.out.println("el cliente" + client.toString() + " fue aceptado");
+                System.out.println("el cliente " + client.getLocalAddress() + " " + client.getPort() + " fue aceptado");
 
                 //con esto recibire los mensajes del cliente
                 in = new DataInputStream(client.getInputStream());

@@ -72,6 +72,8 @@ public class Client extends Thread{
                 out.writeUTF(msg);//aca mande mi mensaje al server
 
                 if (msg.equals("x")) {
+                    String bye = in.readUTF();
+                    System.out.println(bye);
                     client.close();
                 } else {
                     msg = in.readUTF();//y aca leo la respuesta del server

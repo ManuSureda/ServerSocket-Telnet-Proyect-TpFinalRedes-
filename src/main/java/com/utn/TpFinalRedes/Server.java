@@ -60,7 +60,7 @@ public class Server {
 
                     if (msg.equals("x")) {
                         //si llega aca, quiere decir que puso x, con lo cual se quiere ir
-                        out.writeUTF("adios " + client.toString());
+                        out.writeUTF("adios " + client.getLocalAddress() + " " + client.getPort());
                         System.out.println("el cliente se ah desconectado");
                         client.close();
                     } else {

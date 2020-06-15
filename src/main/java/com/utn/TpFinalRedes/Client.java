@@ -7,17 +7,13 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client extends Thread{
+public class Client {
 
     public static void main(String[] args) {
         new Client().runClient();
     }
 
     public void runClient() {
-
-//        final String HOST = "127.0.0.1";
-//        final Integer PORT = 3000;
-
         DataInputStream in;
         DataOutputStream out;
 
@@ -71,15 +67,10 @@ public class Client extends Thread{
                 }
             }
             sc.close();
-            //client.close();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
-
-
 }

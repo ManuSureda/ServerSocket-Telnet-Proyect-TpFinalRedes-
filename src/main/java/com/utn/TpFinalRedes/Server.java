@@ -9,14 +9,6 @@ import java.util.Scanner;
 
 public class Server {
 
-//    private ServerSocket server;
-//    Socket client;
-//    DataInputStream in;
-//    DataOutputStream out;
-//    final int PORT = 3000;
-//    Scanner sc;
-//    String msg;
-
     public static void main(String[] args) {
         new Server().run();
     }
@@ -51,6 +43,7 @@ public class Server {
                 out = new DataOutputStream(client.getOutputStream());
 
                 while (!"x".equals(msg)) {//voy a recibir los mensajes del cliente mientras que no mande x
+
                     //aca recibo el mensaje del cliente
                     msg = in.readUTF();
                     System.out.println("mensaje del cliente: " + msg);

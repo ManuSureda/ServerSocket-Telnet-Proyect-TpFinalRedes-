@@ -9,16 +9,6 @@ import java.util.Scanner;
 
 public class Client extends Thread{
 
-//    private int id;
-//
-//    public Client(int id) {
-//        this.id = id;
-//    }
-//
-    //no se por que pero me pide q devuelva long
-//    public long getId() {
-//        return id;
-//    }
     public static void main(String[] args) {
         new Client().runClient();
     }

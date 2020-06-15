@@ -1,6 +1,5 @@
 package com.utn.TpFinalRedes;
 
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,23 +9,13 @@ import java.util.Scanner;
 
 public class Server {
 
-//    private int id;
-//
-//    public Server(int id) {
-//        this.id = id;
-//    }
-//
-//    public int getId() {
-//        return id;
-//    }
-
-    private ServerSocket server;
-    Socket client;
-    DataInputStream in;
-    DataOutputStream out;
-    final int PORT = 3000;
-    Scanner sc;
-    String msg;
+//    private ServerSocket server;
+//    Socket client;
+//    DataInputStream in;
+//    DataOutputStream out;
+//    final int PORT = 3000;
+//    Scanner sc;
+//    String msg;
 
     public static void main(String[] args) {
         new Server().run();
@@ -54,6 +43,7 @@ public class Server {
 
                 //acepto al cliente
                 client = server.accept();
+                client.setKeepAlive();
                 System.out.println("el cliente " + client.getLocalAddress() + " " + client.getPort() + " fue aceptado");
 
                 //con esto recibire los mensajes del cliente

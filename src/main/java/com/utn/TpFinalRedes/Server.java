@@ -43,7 +43,6 @@ public class Server {
 
                 //acepto al cliente
                 client = server.accept();
-                client.setKeepAlive();
                 System.out.println("el cliente " + client.getLocalAddress() + " " + client.getPort() + " fue aceptado");
 
                 //con esto recibire los mensajes del cliente

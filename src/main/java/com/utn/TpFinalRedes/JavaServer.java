@@ -3,7 +3,6 @@ package com.utn.TpFinalRedes;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -61,7 +60,7 @@ public class JavaServer extends Thread implements IServer {
 
                 //aca recibo el mensaje del cliente
                 msg = in.readUTF();
-                System.out.println("mensaje del cliente: " + msg);
+                System.out.println("Mensaje del cliente " + client.getLocalAddress() + " " + client.getPort() + ": " + msg);
 
                 if ("x".equals(msg)) {
                     //si llega aca, quiere decir que puso x, con lo cual se quiere ir

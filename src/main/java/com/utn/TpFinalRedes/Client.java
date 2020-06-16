@@ -7,13 +7,18 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client {
+public class Client extends Thread{
 
-    public static void main(String[] args) {
-        new Client().runClient();
+//    public static void main(String[] args) {
+//        Thread client = new Client();
+//        client.start();
+//    }
+
+    public Client() {
     }
 
-    public void runClient() {
+    @Override
+    public void run() {
         DataInputStream in;
         DataOutputStream out;
 
@@ -34,7 +39,6 @@ public class Client {
                 ip = new DataInputStream(System.in).readLine();
                 System.out.println("ingrese el puerto: ");
                 port = Integer.parseInt(new DataInputStream(System.in).readLine());
-//                port = sc.nextInt();
                 try{
                     client = new Socket(ip,port);
                     flag++;//si se logra conectar salgo del while, sino atrapo la exception, con lo cual flag seguira siendo 0
@@ -44,16 +48,24 @@ public class Client {
                 }
             }
 
-            //con esto recibire los mensajes del servidor
+
+
+            System.out.println("Aguarde hasta recibir el mensaje de bienvenido por favor...");
             in = new DataInputStream(client.getInputStream());
-            //con esto mandare mensajes al Servidor
-            out = new DataOutputStream(client.getOutputStream());
+            String start = in.readUTF();
+            System.out.println(start);
+
+
 
             while (!msg.equals("x")) {
+                //con esto recibire los mensajes del servidor
+                in = new DataInputStream(client.getInputStream());
+                //con esto mandare mensajes al Servidor
+                out = new DataOutputStream(client.getOutputStream());
 
                 //en este punto el servidor esta esperando un mensaje del cliente
                 System.out.println("que quiere decirle al servidor?: ");
-                msg = sc.nextLine();
+                msg = sc.next();
 
                 out.writeUTF(msg);//aca mande mi mensaje al server
 
@@ -62,8 +74,8 @@ public class Client {
                     System.out.println(bye);
                     client.close();
                 } else {
-                    msg = in.readUTF();//y aca leo la respuesta del server
-                    System.out.println("respuesta del server: " + msg);
+                    String ans = in.readUTF();//y aca leo la respuesta del server
+                    System.out.println("respuesta del server: " + ans);
                 }
             }
             sc.close();

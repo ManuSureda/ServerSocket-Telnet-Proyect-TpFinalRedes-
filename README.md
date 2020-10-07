@@ -1,3 +1,7 @@
+# Final project for the subject "networks".
+It consists on achieving a console-console or console-mobile app communication
+
+
 # TpFinalRedes
 
 # Integrantes: 
